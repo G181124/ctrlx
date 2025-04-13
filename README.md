@@ -1,4 +1,3 @@
-## ✅ `README.md` – Versi Final Publik
 
 ```markdown
 # CTRLX
