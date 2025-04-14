@@ -1,5 +1,3 @@
-# Lokasi file: ctrlx/ctrlx.py
-
 import argparse
 import sys
 from boot import viper
@@ -34,7 +32,7 @@ def main():
         "tool",
         metavar="<kategori>",
         help=(
-            "Kategori utama dari tools yang tersedia:\n"
+            "Kategori utama dari tools:\n"
             "  axt   → Payload dan Shellcode Generator\n"
             "  rda   → Persistence dan backdoor generator\n"
             "  zkf   → Exploit template dan shellcode formatter\n"
@@ -63,7 +61,6 @@ def main():
         help="Jika disertakan, output akan disimpan otomatis ke dalam folder output/<kategori>/."
     )
 
-    # Jika hanya ingin melihat bantuan, tampilkan help tanpa banner
     if "--help" in sys.argv or "-h" in sys.argv:
         print_banner()
         
