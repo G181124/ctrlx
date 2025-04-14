@@ -54,7 +54,6 @@ def main():
             "  --type w0x   → untuk membuat Windows payload\n"
             "  --type sch   → untuk format shellcode\n"
             "  --type cpp   → untuk generate wordlist berdasarkan profil\n"
-            "Gunakan --help setelah memilih tool untuk lihat opsi lengkapnya."
         )
     )
 
