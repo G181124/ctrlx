@@ -10,22 +10,22 @@ def print_banner():
     RESET = "\033[0m"
 
     banner = r"""
-     >=>    >===>>=====> >======>     >=>       >=>      >=>  
-  >=>   >=>      >=>     >=>    >=>   >=>        >=>   >=>    
- >=>             >=>     >=>    >=>   >=>         >=> >=>     
- >=>             >=>     >> >==>      >=>           >=>       
- >=>             >=>     >=>  >=>     >=>         >=> >=>     
-  >=>   >=>      >=>     >=>    >=>   >=>        >=>   >=>    
-    >===>        >=>     >=>      >=> >=======> >=>      >=>  
+______________________________.____     ____  ___
+\_   ___ \__    ___/\______   \    |    \   \/  /
+/    \  \/ |    |    |       _/    |     \     / 
+\     \____|    |    |    |   \    |___  /     \ 
+ \______  /|____|    |____|_  /_______ \/___/\  \
+        \/                  \/        \/      \_/
 """
-    print(RED + banner + RESET)
-    print(BLUE + "CTRLX - Command Toolkit for Offensive Operations\n" + RESET)
+    print(BLUE + banner + RESET)
+    print(BLUE + "[ CTRLX - Command Toolkit for Offensive Operations ]" + RESET)
+    print(BLUE + "                [ Created By RL ]\n" + RESET)
 
 
 def main():
     parser = argparse.ArgumentParser(
         prog="ctrlx",
-        description="CTRLX adalah toolkit modular berbasis CLI untuk eksploitasi, persistence, obfuscation, dan otomasi konfigurasi dalam offensive security.",
+        description="CTRLX toolkit modular berbasis CLI --> eksploitasi, persistence, obfuscation, dan otomasi konfigurasi dalam offensive security.",
         epilog="Contoh penggunaan:\n  python ctrlx.py axt --type w0x --lhost 127.0.0.1 --lport 4444 --format exe --save",
         formatter_class=argparse.RawTextHelpFormatter
     )
@@ -66,12 +66,15 @@ def main():
 
     # Jika hanya ingin melihat bantuan, tampilkan help tanpa banner
     if "--help" in sys.argv or "-h" in sys.argv:
+        print_banner()
+        
+    args, unknown = parser.parse_known_args()
+
+    if not args.tool or not args.type:
         parser.print_help()
         sys.exit()
 
     print_banner()
-    args, unknown = parser.parse_known_args()
-
     result, saved_path = viper.launch_tool(
         tool=args.tool,
         tool_type=args.type,
